@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Cleanup workspace') {
             steps {
-                cleanWs()
+                cleanws()
             }
 
         }
@@ -18,6 +18,11 @@ pipeline {
             steps {
                 git branch: 'main', credentialsId: 'github', url: 'https://github.com/sudo-danish/complete-prodcution-e2e-pipeline.git'
             }
+        }
+
+        stage('Build & Test Application') {
+            sh 'mvn clean package'
+            sh 'mvn test'
         }
     }
 }
