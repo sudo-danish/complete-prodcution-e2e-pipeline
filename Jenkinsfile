@@ -10,7 +10,7 @@ pipeline {
         APP_NAME = "complete-prodcution-e2e-pipeline"
         RELEASE = "1.0"
         DOCKER_USER = "danishlxc"
-        DOCKER_PASS = credentials('dockerhub')
+        DOCKER_PASS = credentials('dockerhubid')
         IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
         IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
 
