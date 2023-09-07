@@ -1,5 +1,5 @@
 pipeline {
-    agent {
+    agent { //this is test
         label 'jenkins-node'
     }
     tools {
