@@ -45,6 +45,7 @@ pipeline {
                 }
             }
         }
+
         /* 
         stage('Quality Gate') {
             steps {
@@ -54,7 +55,8 @@ pipeline {
             }
         }
         */
-         
+
+        /*  
         stage('Build & Push Docker Image') {
             steps {
                 script {
@@ -68,6 +70,18 @@ pipeline {
                 }
             }
         }
-     }   
-    
-}
+        */
+        
+        stage('Build & Push Docker Image') {
+            steps {
+                script {
+                    sh "echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin"
+                    sh "docker build -t $IMAGE_NAME ."
+                    sh "docker push $IMAGE_TAG"
+
+                }
+            }
+        }
+    }    
+}    
+
