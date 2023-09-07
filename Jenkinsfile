@@ -1,5 +1,5 @@
 pipeline {
-    agent { //this is test
+    agent {
         label 'jenkins-node'
     }
     tools {
@@ -54,6 +54,7 @@ pipeline {
             }
         }
         */
+         
         stage('Build & Push Docker Image') {
             steps{
                 script {
@@ -67,5 +68,6 @@ pipeline {
                 }
             }
         }
+        
     }
 }
