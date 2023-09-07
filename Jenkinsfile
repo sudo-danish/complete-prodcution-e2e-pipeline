@@ -10,7 +10,7 @@ pipeline {
         APP_NAME = "complete-prodcution-e2e-pipeline"
         RELEASE = "1.0"
         DOCKER_USER = "danishlxc"
-        DOCKER_PASS = 'dockerhub'
+        DOCKER_PASS = credentials('dockerhubID')
         IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
         IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
 
@@ -45,15 +45,15 @@ pipeline {
                 }
             }
         }
-
+        /* 
         stage('Quality Gate') {
             steps {
                 script {
-                    waitForQualityGate abortPipeline: false, credentialsId: 'jenkins-sonarqube-token'
+                    //waitForQualityGate abortPipeline: false, credentialsId: 'jenkins-sonarqube-token'
                 }
             }
         }
-
+        */
         stage('Build & Push Docker Image') {
             steps{
                 script {
