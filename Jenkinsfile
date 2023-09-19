@@ -8,7 +8,7 @@ pipeline {
     }
     environment {
         APP_NAME = "complete-prodcution-e2e-pipeline"
-        RELEASE = "1.0"
+        RELEASE = "1.1"
         DOCKER_USER = "danishlxc"
         DOCKER_PASS = credentials('dockerhubID')
         IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
